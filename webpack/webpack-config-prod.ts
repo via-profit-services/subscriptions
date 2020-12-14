@@ -24,7 +24,7 @@ const webpackProdConfig: Configuration = merge(webpackBaseConfig, {
   plugins: [
     new BannerPlugin({
       banner: `
-Via Profit Services / Core
+Via Profit Services / Subscriptions
 
 Repository ${packageInfo.repository.url}
 Contact    ${packageInfo.support}

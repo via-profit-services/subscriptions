@@ -1,7 +1,7 @@
 {
     "name": "@via-profit-services/subscriptions",
     "support": "https://via-profit.ru",
-    "version": "0.31.6-rc.3",
+    "version": "0.1.0-rc.1",
     "description": "Via Profit Subscriptions service",
     "main": "dist/index.js",
     "engines": {
