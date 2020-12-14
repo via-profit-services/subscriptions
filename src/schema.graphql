@@ -1,0 +1,7 @@
+type Subscription {
+  echo: String!
+}
+
+extend type Mutation {
+  echo(str: String): String!
+}
