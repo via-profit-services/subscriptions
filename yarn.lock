@@ -1094,24 +1094,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@via-profit-services/core@file://home/dhs/Projects/@via-profit-services/core/package-5.tgz::locator=%40via-profit-services%2Fsubscriptions%40workspace%3A.":
-  version: 0.31.6-rc.4
-  resolution: "@via-profit-services/core@file://home/dhs/Projects/@via-profit-services/core/package-5.tgz::locator=%40via-profit-services%2Fsubscriptions%40workspace%3A."
+"@via-profit-services/core@file://home/dhs/Projects/@via-profit-services/core/package-0.31.6-rc.11.tgz::locator=%40via-profit-services%2Fsubscriptions%40workspace%3A.":
+  version: 0.31.6-rc.11
+  resolution: "@via-profit-services/core@file://home/dhs/Projects/@via-profit-services/core/package-0.31.6-rc.11.tgz::locator=%40via-profit-services%2Fsubscriptions%40workspace%3A."
   dependencies:
     bufferutil: ^4.0.2
-    dataloader: ^2.0.0
-    graphql-redis-subscriptions: ^2.3.1
-    graphql-subscriptions: ^1.1.0
-    ioredis: ^4.16.3
-    subscriptions-transport-ws: ^0.9.18
     utf-8-validate: ^5.0.3
-    ws: ^7.3.1
   peerDependencies:
     dataloader: "*"
     express: "*"
     graphql: "*"
     moment: "*"
     moment-timezone: "*"
+    supports-color: "*"
     winston: "*"
     winston-daily-rotate-file: "*"
   dependenciesMeta:
@@ -1119,7 +1114,7 @@ __metadata:
       optional: true
     utf-8-validate:
       optional: true
-  checksum: a3d3047ad1e6bed8c01f41898bb5ca553c59fe34b78bf54e3f587a6ad131a58cfeea68f9e54f0e06e8db462c907c8704572e4e75f374fc53af436fbdc7c18f56
+  checksum: 09badcec3e340989ff3c1faa7c4c8a34ed5bf7853ad2b54a1485b6991b7fdd589be5552fee26d25df411370ed30ff610ed1dc599dc84c1811c7aac4595f0ffb3
   languageName: node
   linkType: hard
 
@@ -1157,7 +1152,7 @@ __metadata:
     "@types/ws": ^7.2.4
     "@typescript-eslint/eslint-plugin": ^4.6.1
     "@typescript-eslint/parser": ^4.6.1
-    "@via-profit-services/core": "file://home/dhs/Projects/@via-profit-services/core/package-5.tgz"
+    "@via-profit-services/core": "file://home/dhs/Projects/@via-profit-services/core/package-0.31.6-rc.11.tgz"
     "@via-profit-services/eslint-config": ^0.1.11
     "@zerollup/ts-transform-paths": ^1.7.11
     chalk: ^3.0.0

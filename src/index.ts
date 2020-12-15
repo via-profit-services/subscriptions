@@ -9,7 +9,7 @@ import resolvers from './resolvers';
 import typeDefs from './schema.graphql';
 import { pubsubFactory, subscriptionsFactory } from './subscriptions';
 
-const subscriptionMiddlewareFactory: SubscriptionsMiddlewareFactory = (config) => {
+const factory: SubscriptionsMiddlewareFactory = (config) => {
   const configuration: Configuration = {
     endpoint: DEFAULT_ENDPOINT,
     ...config,
@@ -21,10 +21,21 @@ const subscriptionMiddlewareFactory: SubscriptionsMiddlewareFactory = (config) =
     },
   };
 
+
+  const pool: ReturnType<Middleware> = {
+    context: null,
+  }
+
   const middleware: Middleware = (props) => {
-    const { context } = props;
-    const { schema, endpoint, server } = configuration;
+
+    if (pool.context) {
+      return pool;
+    }
+
+    const { context, schema } = props;
+    const { endpoint, server } = configuration;
     const { logger } = context;
+
     const { pubsub, redis } = pubsubFactory(configuration.redis, logger);
     const composedContext: Context = {
       ...context,
@@ -39,10 +50,9 @@ const subscriptionMiddlewareFactory: SubscriptionsMiddlewareFactory = (config) =
       context: composedContext,
     });
 
+    pool.context = composedContext;
 
-    return {
-      context: composedContext,
-    }
+    return pool;
   };
 
   return middleware;
@@ -51,6 +61,5 @@ const subscriptionMiddlewareFactory: SubscriptionsMiddlewareFactory = (config) =
 export {
   resolvers,
   typeDefs,
+  factory,
 }
-
-export default subscriptionMiddlewareFactory;

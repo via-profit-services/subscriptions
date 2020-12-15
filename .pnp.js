@@ -60,7 +60,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/ws", "npm:7.4.0"],
             ["@typescript-eslint/eslint-plugin", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:4.8.2"],
             ["@typescript-eslint/parser", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:4.8.2"],
-            ["@via-profit-services/core", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#file://home/dhs/Projects/@via-profit-services/core/package-5.tgz::locator=%40via-profit-services%2Fsubscriptions%40workspace%3A."],
+            ["@via-profit-services/core", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#file://home/dhs/Projects/@via-profit-services/core/package-0.31.6-rc.11.tgz::locator=%40via-profit-services%2Fsubscriptions%40workspace%3A."],
             ["@via-profit-services/eslint-config", "npm:0.1.11"],
             ["@zerollup/ts-transform-paths", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.7.18"],
             ["chalk", "npm:3.0.0"],
@@ -1386,31 +1386,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@via-profit-services/core", [
-        ["virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#file://home/dhs/Projects/@via-profit-services/core/package-5.tgz::locator=%40via-profit-services%2Fsubscriptions%40workspace%3A.", {
-          "packageLocation": "./.yarn/$$virtual/@via-profit-services-core-virtual-aabf9d6552/0/cache/@via-profit-services-core-file-0e3d6aac07-a3d3047ad1.zip/node_modules/@via-profit-services/core/",
+        ["virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#file://home/dhs/Projects/@via-profit-services/core/package-0.31.6-rc.11.tgz::locator=%40via-profit-services%2Fsubscriptions%40workspace%3A.", {
+          "packageLocation": "./.yarn/$$virtual/@via-profit-services-core-virtual-14cbfe661e/0/cache/@via-profit-services-core-file-c1bcf6656a-09badcec3e.zip/node_modules/@via-profit-services/core/",
           "packageDependencies": [
-            ["@via-profit-services/core", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#file://home/dhs/Projects/@via-profit-services/core/package-5.tgz::locator=%40via-profit-services%2Fsubscriptions%40workspace%3A."],
+            ["@via-profit-services/core", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#file://home/dhs/Projects/@via-profit-services/core/package-0.31.6-rc.11.tgz::locator=%40via-profit-services%2Fsubscriptions%40workspace%3A."],
             ["@types/dataloader", null],
             ["@types/express", "npm:4.17.9"],
             ["@types/graphql", null],
             ["@types/moment", "npm:2.13.0"],
             ["@types/moment-timezone", "npm:0.5.13"],
+            ["@types/supports-color", null],
             ["@types/winston", "npm:2.4.4"],
             ["@types/winston-daily-rotate-file", null],
             ["bufferutil", "npm:4.0.2"],
             ["dataloader", "npm:2.0.0"],
             ["express", "npm:4.17.1"],
             ["graphql", "npm:15.4.0"],
-            ["graphql-redis-subscriptions", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:2.3.1"],
-            ["graphql-subscriptions", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.1.0"],
-            ["ioredis", "npm:4.19.2"],
             ["moment", "npm:2.29.1"],
             ["moment-timezone", "npm:0.5.32"],
-            ["subscriptions-transport-ws", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:0.9.18"],
+            ["supports-color", "npm:8.0.0"],
             ["utf-8-validate", "npm:5.0.3"],
             ["winston", "npm:3.3.3"],
-            ["winston-daily-rotate-file", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:4.5.0"],
-            ["ws", "virtual:aabf9d6552932b2007b352f69bbb8ef08bc355bd517a4bacdb7a2553e42e9bc3a54f14ecffde3055539526a901e45f0058b4512aa3c1406c4c6ff805ceccd70d#npm:7.4.0"]
+            ["winston-daily-rotate-file", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:4.5.0"]
           ],
           "packagePeers": [
             "@types/dataloader",
@@ -1418,6 +1415,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/graphql",
             "@types/moment-timezone",
             "@types/moment",
+            "@types/supports-color",
             "@types/winston-daily-rotate-file",
             "@types/winston",
             "dataloader",
@@ -1425,6 +1423,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "graphql",
             "moment-timezone",
             "moment",
+            "supports-color",
             "winston-daily-rotate-file",
             "winston"
           ],
@@ -1468,7 +1467,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/ws", "npm:7.4.0"],
             ["@typescript-eslint/eslint-plugin", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:4.8.2"],
             ["@typescript-eslint/parser", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:4.8.2"],
-            ["@via-profit-services/core", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#file://home/dhs/Projects/@via-profit-services/core/package-5.tgz::locator=%40via-profit-services%2Fsubscriptions%40workspace%3A."],
+            ["@via-profit-services/core", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#file://home/dhs/Projects/@via-profit-services/core/package-0.31.6-rc.11.tgz::locator=%40via-profit-services%2Fsubscriptions%40workspace%3A."],
             ["@via-profit-services/eslint-config", "npm:0.1.11"],
             ["@zerollup/ts-transform-paths", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.7.18"],
             ["chalk", "npm:3.0.0"],
@@ -12684,23 +12683,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["ws", "npm:6.2.1"],
             ["async-limiter", "npm:1.0.1"]
-          ],
-          "linkType": "HARD",
-        }],
-        ["virtual:aabf9d6552932b2007b352f69bbb8ef08bc355bd517a4bacdb7a2553e42e9bc3a54f14ecffde3055539526a901e45f0058b4512aa3c1406c4c6ff805ceccd70d#npm:7.4.0", {
-          "packageLocation": "./.yarn/$$virtual/ws-virtual-1f2de692dc/0/cache/ws-npm-7.4.0-289a5172d8-67c0f3b86d.zip/node_modules/ws/",
-          "packageDependencies": [
-            ["ws", "virtual:aabf9d6552932b2007b352f69bbb8ef08bc355bd517a4bacdb7a2553e42e9bc3a54f14ecffde3055539526a901e45f0058b4512aa3c1406c4c6ff805ceccd70d#npm:7.4.0"],
-            ["@types/bufferutil", null],
-            ["@types/utf-8-validate", null],
-            ["bufferutil", "npm:4.0.2"],
-            ["utf-8-validate", "npm:5.0.3"]
-          ],
-          "packagePeers": [
-            "@types/bufferutil",
-            "@types/utf-8-validate",
-            "bufferutil",
-            "utf-8-validate"
           ],
           "linkType": "HARD",
         }],

@@ -1,7 +1,7 @@
 {
     "name": "@via-profit-services/subscriptions",
     "support": "https://via-profit.ru",
-    "version": "0.1.0-rc.1",
+    "version": "0.1.0-rc.4",
     "description": "Via Profit Subscriptions service",
     "main": "dist/index.js",
     "engines": {
@@ -78,7 +78,7 @@
         "@types/ws": "^7.2.4",
         "@typescript-eslint/eslint-plugin": "^4.6.1",
         "@typescript-eslint/parser": "^4.6.1",
-        "@via-profit-services/core": "file://home/dhs/Projects/@via-profit-services/core/package-5.tgz",
+        "@via-profit-services/core": "file://home/dhs/Projects/@via-profit-services/core/package-0.31.6-rc.11.tgz",
         "@via-profit-services/eslint-config": "^0.1.11",
         "@zerollup/ts-transform-paths": "^1.7.11",
         "chalk": "^3.0.0",

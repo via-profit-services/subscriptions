@@ -28,12 +28,12 @@ declare module '@via-profit-services/core' {
 declare module '@via-profit-services/subscriptions' {
   import { LoggersCollection, Middleware, Context } from '@via-profit-services/core';
   import { RedisPubSub } from 'graphql-redis-subscriptions';
+  import { SubscriptionServer } from 'subscriptions-transport-ws';
   import { RedisOptions, Redis } from 'ioredis';
   import { GraphQLSchema } from 'graphql';
   import http from 'http';
 
   export interface InitialProps {
-    schema: GraphQLSchema;
     /**
      * Your HTTP server instance
      */
@@ -64,16 +64,43 @@ declare module '@via-profit-services/subscriptions' {
   export type PubsubFactory = (config: RedisOptions, logger: LoggersCollection) => {
     pubsub: RedisPubSub;
     redis: Redis;
-  }
+  };
   
   export type SubscriptionsFactory = (props: {
     schema: GraphQLSchema;
     server: http.Server;
     endpoint: string;
     context: Context;
-  }) => void;
+  }) => SubscriptionServer;
 
   export const resolvers: any;
   export const typeDefs: string;
 
+  /**
+   * Subscriptions module Factory \
+   * Use this function to get the graphql middleware\
+   * Example:
+   * ```ts
+   * import * as core from '@via-profit-services/core';
+   * import * as subscriptions from '@via-profit-services/subscriptions';
+   * import { makeExecutableSchema } from '@graphql-tools/schema';
+   * 
+   * // init subscriptions middleware
+   * const pubsubMiddleware = subscriptions.factory({ ... })
+   *
+   * // make GraphQL schema
+   * const schema = makeExecutableSchema({
+   *   typeDefs: [core.typeDefs, subscriptions.typeDefs],
+   *   resolvers: [core.resolvers, subscriptions.resolvers],
+   * });
+   * 
+   * // init application
+   * const { viaProfitGraphql } = await core.factory({
+   *   ...
+   *   middleware: [pubsubMiddleware], // put subscriptions middleware here
+   *   ...
+   * })
+   * ```
+   */
+  export const factory: SubscriptionsFactory;
 }
