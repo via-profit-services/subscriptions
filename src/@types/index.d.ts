@@ -75,32 +75,5 @@ declare module '@via-profit-services/subscriptions' {
 
   export const resolvers: any;
   export const typeDefs: string;
-
-  /**
-   * Subscriptions module Factory \
-   * Use this function to get the graphql middleware\
-   * Example:
-   * ```ts
-   * import * as core from '@via-profit-services/core';
-   * import * as subscriptions from '@via-profit-services/subscriptions';
-   * import { makeExecutableSchema } from '@graphql-tools/schema';
-   * 
-   * // init subscriptions middleware
-   * const pubsubMiddleware = subscriptions.factory({ ... })
-   *
-   * // make GraphQL schema
-   * const schema = makeExecutableSchema({
-   *   typeDefs: [core.typeDefs, subscriptions.typeDefs],
-   *   resolvers: [core.resolvers, subscriptions.resolvers],
-   * });
-   * 
-   * // init application
-   * const { viaProfitGraphql } = await core.factory({
-   *   ...
-   *   middleware: [pubsubMiddleware], // put subscriptions middleware here
-   *   ...
-   * })
-   * ```
-   */
-  export const factory: SubscriptionsFactory;
+  export const factory: SubscriptionsMiddlewareFactory;
 }
