@@ -1,4 +1,4 @@
-import { Middleware, Context } from '@via-profit-services/core';
+import { Middleware } from '@via-profit-services/core';
 import { SubscriptionsMiddlewareFactory, Configuration } from '@via-profit-services/subscriptions';
 
 import {
@@ -28,7 +28,7 @@ const factory: SubscriptionsMiddlewareFactory = (config) => {
 
   const middleware: Middleware = (props) => {
 
-    if (pool.context) {
+    if (pool.context !== null) {
       return pool;
     }
 
@@ -37,20 +37,17 @@ const factory: SubscriptionsMiddlewareFactory = (config) => {
     const { logger } = context;
 
     const { pubsub, redis } = pubsubFactory(configuration.redis, logger);
-    const composedContext: Context = {
-      ...context,
-      pubsub,
-      redis,
-    }
+
+    pool.context = context;
+    pool.context.pubsub = pubsub;
+    pool.context.redis = redis;
 
     subscriptionsFactory({
       schema,
       endpoint,
       server,
-      context: composedContext,
+      context: pool.context,
     });
-
-    pool.context = composedContext;
 
     return pool;
   };
