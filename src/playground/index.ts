@@ -29,11 +29,10 @@ const LOG_DIR = './artifacts/log';
     },
   });
 
-  const { viaProfitGraphql } = await core.factory({
+  const { graphQLExpress } = await core.factory({
     server,
     schema,
     debug: true,
-    enableIntrospection: true,
     logDir: LOG_DIR,
     middleware: [subscriptionMiddleware],
   });
@@ -41,7 +40,7 @@ const LOG_DIR = './artifacts/log';
 
   app.use(cors());
   app.set('trust proxy', true);
-  app.use('/graphql', viaProfitGraphql);
+  app.use('/graphql', graphQLExpress);
 
 
   server.listen(PORT, () => {
