@@ -1094,32 +1094,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@via-profit-services/core@file://home/dhs/Projects/@via-profit-services/core/package-5.tgz::locator=%40via-profit-services%2Fsubscriptions%40workspace%3A.":
-  version: 0.31.6-rc.4
-  resolution: "@via-profit-services/core@file://home/dhs/Projects/@via-profit-services/core/package-5.tgz::locator=%40via-profit-services%2Fsubscriptions%40workspace%3A."
+"@via-profit-services/core@file://home/dhs/Projects/@via-profit-services/core/package-1.0.0-rc.1.tgz::locator=%40via-profit-services%2Fsubscriptions%40workspace%3A.":
+  version: 1.0-rc.1
+  resolution: "@via-profit-services/core@file://home/dhs/Projects/@via-profit-services/core/package-1.0.0-rc.1.tgz::locator=%40via-profit-services%2Fsubscriptions%40workspace%3A."
   dependencies:
     bufferutil: ^4.0.2
-    dataloader: ^2.0.0
-    graphql-redis-subscriptions: ^2.3.1
-    graphql-subscriptions: ^1.1.0
-    ioredis: ^4.16.3
-    subscriptions-transport-ws: ^0.9.18
+    content-type: ^1.0.4
+    raw-body: ^2.4.1
     utf-8-validate: ^5.0.3
-    ws: ^7.3.1
   peerDependencies:
-    dataloader: "*"
-    express: "*"
-    graphql: "*"
-    moment: "*"
-    moment-timezone: "*"
-    winston: "*"
-    winston-daily-rotate-file: "*"
+    dataloader: ^2.0.0
+    express: ^4.17.1
+    graphql: ^15.4.0
+    moment: ^2.29.1
+    moment-timezone: ^0.5.32
+    winston: ^3.3.3
+    winston-daily-rotate-file: ^4.5.0
   dependenciesMeta:
     bufferutil:
       optional: true
     utf-8-validate:
       optional: true
-  checksum: a3d3047ad1e6bed8c01f41898bb5ca553c59fe34b78bf54e3f587a6ad131a58cfeea68f9e54f0e06e8db462c907c8704572e4e75f374fc53af436fbdc7c18f56
+  checksum: 061625c2014e55f7e07cbc7235bb240d44513388b3f0ca3ce35d33e45f78c887340db9f87a0ed92912d59764a5d032b21f988c7eba4ea26e368be90c6aa1eda9
   languageName: node
   linkType: hard
 
@@ -1157,7 +1153,7 @@ __metadata:
     "@types/ws": ^7.2.4
     "@typescript-eslint/eslint-plugin": ^4.6.1
     "@typescript-eslint/parser": ^4.6.1
-    "@via-profit-services/core": "file://home/dhs/Projects/@via-profit-services/core/package-5.tgz"
+    "@via-profit-services/core": "file://home/dhs/Projects/@via-profit-services/core/package-1.0.0-rc.1.tgz"
     "@via-profit-services/eslint-config": ^0.1.11
     "@zerollup/ts-transform-paths": ^1.7.11
     chalk: ^3.0.0
@@ -1216,7 +1212,8 @@ __metadata:
     winston-daily-rotate-file: ^4.5.0
     ws: ^7.3.1
   peerDependencies:
-    "@via-profit-services/core": "*"
+    "@via-profit-services/core": ^1.0.0
+    graphql: "*"
   languageName: unknown
   linkType: soft
 
@@ -2898,7 +2895,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"content-type@npm:~1.0.4":
+"content-type@npm:^1.0.4, content-type@npm:~1.0.4":
   version: 1.0.4
   resolution: "content-type@npm:1.0.4"
   checksum: ff6e19cbf281c23d5608723a6dc60ac97e2280bd4d21602511283112321e6c1555895e395555e367672b54a0f1585276284b7c3c8be313aca73902ac2f2609fd
@@ -5216,19 +5213,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"http-errors@npm:~1.6.2":
-  version: 1.6.3
-  resolution: "http-errors@npm:1.6.3"
-  dependencies:
-    depd: ~1.1.2
-    inherits: 2.0.3
-    setprototypeof: 1.1.0
-    statuses: ">= 1.4.0 < 2"
-  checksum: 850a3bf69ffc56c5151cea4a31bdf47412b7a6af3ee3f4fc92d3c4d90f8398d8843806f0d81916b310b661eed93722272cf2d41c2cac2fd5d1d1c66d4077942c
-  languageName: node
-  linkType: hard
-
-"http-errors@npm:~1.7.2":
+"http-errors@npm:1.7.3, http-errors@npm:~1.7.2":
   version: 1.7.3
   resolution: "http-errors@npm:1.7.3"
   dependencies:
@@ -5238,6 +5223,18 @@ fsevents@~2.1.2:
     statuses: ">= 1.5.0 < 2"
     toidentifier: 1.0.0
   checksum: 563ae4a3f19c89029212922bade6ffcd0e4b7fa52e539f08c8f6941de7eaccb00bf76cb7692662192f2f0d567d4ac1f9d6a3d0ee70b166c8540cf791497f90ea
+  languageName: node
+  linkType: hard
+
+"http-errors@npm:~1.6.2":
+  version: 1.6.3
+  resolution: "http-errors@npm:1.6.3"
+  dependencies:
+    depd: ~1.1.2
+    inherits: 2.0.3
+    setprototypeof: 1.1.0
+    statuses: ">= 1.4.0 < 2"
+  checksum: 850a3bf69ffc56c5151cea4a31bdf47412b7a6af3ee3f4fc92d3c4d90f8398d8843806f0d81916b310b661eed93722272cf2d41c2cac2fd5d1d1c66d4077942c
   languageName: node
   linkType: hard
 
@@ -8551,6 +8548,18 @@ fsevents@~2.1.2:
     iconv-lite: 0.4.24
     unpipe: 1.0.0
   checksum: 46dc02f8b4f358786d41e18fb55533fbe4702d390e22bbe2b9c98c88dec41cab23ea2315f3ae0bf4bc0213a2872c89943d3df6857f4e21f996ea9d2d92f1bcaa
+  languageName: node
+  linkType: hard
+
+"raw-body@npm:^2.4.1":
+  version: 2.4.1
+  resolution: "raw-body@npm:2.4.1"
+  dependencies:
+    bytes: 3.1.0
+    http-errors: 1.7.3
+    iconv-lite: 0.4.24
+    unpipe: 1.0.0
+  checksum: dc56e010d276f2fc3a17c2dd071f857917cd3734f64051488c845a9878a1eb47e03a9644861f135568d8ab4c2062072700b73060956b36f3a987025bc809402f
   languageName: node
   linkType: hard
 

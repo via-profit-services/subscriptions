@@ -10,7 +10,7 @@ const Mutation: IObjectTypeResolver<any, Context, Args> = {
     const { pubsub } = context;
     const { str } = args;
 
-    pubsub.publish('echo', { echo: str });
+    pubsub.publish('echo', { echo: `Pubsub: «${str}»` });
 
     return str;
   },

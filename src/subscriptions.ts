@@ -2,15 +2,16 @@ import { ServerError } from '@via-profit-services/core';
 import { PubsubFactory, SubscriptionsFactory } from '@via-profit-services/subscriptions';
 import { execute, subscribe } from 'graphql';
 import { RedisPubSub } from 'graphql-redis-subscriptions';
-import Redis from 'ioredis';
+import IORedis from 'ioredis';
 import { SubscriptionServer } from 'subscriptions-transport-ws';
 import WebSocket from 'ws';
 
+
 export const pubsubFactory: PubsubFactory = (config, logger) => {
 
-  let redisHandle: Redis.Redis;
-  let redisPublisherHandle: Redis.Redis;
-  let redisSubscriberHandle: Redis.Redis;
+  let redisHandle: IORedis.Redis;
+  let redisPublisherHandle: IORedis.Redis;
+  let redisSubscriberHandle: IORedis.Redis;
 
   const redisConfig = {
     retryStrategy: (times: number) => Math.min(times * 50, 20000),
@@ -18,9 +19,9 @@ export const pubsubFactory: PubsubFactory = (config, logger) => {
   };
 
   try {
-    redisHandle = new Redis(redisConfig);
-    redisPublisherHandle = new Redis(redisConfig);
-    redisSubscriberHandle = new Redis(redisConfig);
+    redisHandle = new IORedis(redisConfig);
+    redisPublisherHandle = new IORedis(redisConfig);
+    redisSubscriberHandle = new IORedis(redisConfig);
   } catch (err) {
     throw new ServerError('Failed to init Redis handle', { err });
   }
@@ -73,6 +74,7 @@ export const pubsubFactory: PubsubFactory = (config, logger) => {
     logger.server.debug('Redis Subscriber close');
   });
 
+
   const pubsub = new RedisPubSub({
     publisher: redisPublisherHandle,
     subscriber: redisSubscriberHandle,
@@ -82,7 +84,7 @@ export const pubsubFactory: PubsubFactory = (config, logger) => {
   return {
     redis: redisHandle,
     pubsub,
-  }
+  };
 }
 
 export const subscriptionsFactory: SubscriptionsFactory = (props) => {
@@ -90,7 +92,6 @@ export const subscriptionsFactory: SubscriptionsFactory = (props) => {
   const { logger } = context;
 
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const subscriptionServer = new SubscriptionServer({
     execute,
     schema,
@@ -108,4 +109,6 @@ export const subscriptionsFactory: SubscriptionsFactory = (props) => {
     server,
     path: endpoint,
   });
+
+  return subscriptionServer;
 }

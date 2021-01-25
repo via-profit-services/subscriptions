@@ -1,4 +1,4 @@
-import { Middleware, Context } from '@via-profit-services/core';
+import { Middleware } from '@via-profit-services/core';
 import { SubscriptionsMiddlewareFactory, Configuration } from '@via-profit-services/subscriptions';
 
 import {
@@ -9,7 +9,7 @@ import resolvers from './resolvers';
 import typeDefs from './schema.graphql';
 import { pubsubFactory, subscriptionsFactory } from './subscriptions';
 
-const subscriptionMiddlewareFactory: SubscriptionsMiddlewareFactory = (config) => {
+const factory: SubscriptionsMiddlewareFactory = (config) => {
   const configuration: Configuration = {
     endpoint: DEFAULT_ENDPOINT,
     ...config,
@@ -21,28 +21,35 @@ const subscriptionMiddlewareFactory: SubscriptionsMiddlewareFactory = (config) =
     },
   };
 
+
+  const pool: ReturnType<Middleware> = {
+    context: null,
+  }
+
   const middleware: Middleware = (props) => {
-    const { context } = props;
-    const { schema, endpoint, server } = configuration;
-    const { logger } = context;
-    const { pubsub, redis } = pubsubFactory(configuration.redis, logger);
-    const composedContext: Context = {
-      ...context,
-      pubsub,
-      redis,
+
+    if (pool.context !== null) {
+      return pool;
     }
+
+    const { context, schema } = props;
+    const { endpoint, server } = configuration;
+    const { logger } = context;
+
+    const { pubsub, redis } = pubsubFactory(configuration.redis, logger);
+
+    pool.context = context;
+    pool.context.pubsub = pubsub;
+    pool.context.redis = redis;
 
     subscriptionsFactory({
       schema,
       endpoint,
       server,
-      context: composedContext,
+      context: pool.context,
     });
 
-
-    return {
-      context: composedContext,
-    }
+    return pool;
   };
 
   return middleware;
@@ -51,6 +58,5 @@ const subscriptionMiddlewareFactory: SubscriptionsMiddlewareFactory = (config) =
 export {
   resolvers,
   typeDefs,
+  factory,
 }
-
-export default subscriptionMiddlewareFactory;

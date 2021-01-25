@@ -28,12 +28,12 @@ declare module '@via-profit-services/core' {
 declare module '@via-profit-services/subscriptions' {
   import { LoggersCollection, Middleware, Context } from '@via-profit-services/core';
   import { RedisPubSub } from 'graphql-redis-subscriptions';
+  import { SubscriptionServer } from 'subscriptions-transport-ws';
   import { RedisOptions, Redis } from 'ioredis';
   import { GraphQLSchema } from 'graphql';
   import http from 'http';
 
   export interface InitialProps {
-    schema: GraphQLSchema;
     /**
      * Your HTTP server instance
      */
@@ -64,16 +64,16 @@ declare module '@via-profit-services/subscriptions' {
   export type PubsubFactory = (config: RedisOptions, logger: LoggersCollection) => {
     pubsub: RedisPubSub;
     redis: Redis;
-  }
+  };
   
   export type SubscriptionsFactory = (props: {
     schema: GraphQLSchema;
     server: http.Server;
     endpoint: string;
     context: Context;
-  }) => void;
+  }) => SubscriptionServer;
 
   export const resolvers: any;
   export const typeDefs: string;
-
+  export const factory: SubscriptionsMiddlewareFactory;
 }
