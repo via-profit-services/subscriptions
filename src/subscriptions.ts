@@ -91,19 +91,19 @@ export const subscriptionsFactory: SubscriptionsFactory = (props) => {
   const { context, schema, endpoint, server } = props;
   const { logger } = context;
 
-
   const subscriptionServer = new SubscriptionServer({
     execute,
     schema,
     subscribe,
     onConnect: async () => {
-      // if (debug) {
-        logger.server.debug('New subscription client connected');
-      // }
+      logger.server.debug('New subscription client connected');
 
       return context;
     },
-    onDisconnect: (webSocket: WebSocket) => webSocket.close(),
+    onDisconnect: (webSocket: WebSocket) => {
+      logger.server.debug('Subscription client disconnect');
+      webSocket.close()
+    },
   },
   {
     server,

@@ -1,12 +1,14 @@
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import * as core from '@via-profit-services/core';
 import cors from 'cors';
+import dotenv from 'dotenv';
 import express from 'express';
 import { createServer } from 'http';
 
 import * as subscriptions from '../index';
 
-const PORT = 9005;
+dotenv.config();
+
 const LOG_DIR = './artifacts/log';
 
 
@@ -21,10 +23,10 @@ const LOG_DIR = './artifacts/log';
 
   const subscriptionMiddleware = subscriptions.factory({
     server,
-    endpoint: '/graphql',
+    endpoint: process.env.GRAPHQL_SUBSCRIPTION_ENDPOINT,
     redis: {
-      port: 6379,
-      host: 'localhost',
+      port: Number(process.env.REDIS_PORT),
+      host: process.env.REDIS_HOST,
       password: '',
     },
   });
@@ -34,20 +36,22 @@ const LOG_DIR = './artifacts/log';
     schema,
     debug: true,
     logDir: LOG_DIR,
-    middleware: [subscriptionMiddleware],
+    middleware: [
+      subscriptionMiddleware,
+    ],
   });
 
 
   app.use(cors());
   app.set('trust proxy', true);
-  app.use('/graphql', graphQLExpress);
+  app.use(process.env.GRAPHQL_ENDPOINT, graphQLExpress);
 
 
-  server.listen(PORT, () => {
+  server.listen(Number(process.env.GRAPHQL_PORT), process.env.GRAPHQL_HOST, () => {
     // eslint-disable-next-line no-console
-    console.info(`GraphQL server started at http://localhost:${PORT}/graphql`);
+    console.info(`GraphQL server started at http://${process.env.GRAPHQL_HOST}:${process.env.GRAPHQL_PORT}${process.env.GRAPHQL_ENDPOINT}`);
     // eslint-disable-next-line no-console
-    console.log(`GraphQL server started at ws://localhost:${PORT}/graphql`);
+    console.info(`Subscription server started at ws://${process.env.GRAPHQL_HOST}:${process.env.GRAPHQL_PORT}${process.env.GRAPHQL_SUBSCRIPTION_ENDPOINT}`);
   });
 
 })();
