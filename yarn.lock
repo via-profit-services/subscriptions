@@ -623,6 +623,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/dotenv@npm:^8.2.0":
+  version: 8.2.0
+  resolution: "@types/dotenv@npm:8.2.0"
+  dependencies:
+    dotenv: "*"
+  checksum: 8b4d00f8849c550a6888b8f426f85f14171bf1bab53f6b2683bd71a25869a93cb4b960f4fa8de592f2b4c43366240fc9c50d89e6cc1cffffafbb843879c6fdd6
+  languageName: node
+  linkType: hard
+
 "@types/eslint-scope@npm:^3.7.0":
   version: 3.7.0
   resolution: "@types/eslint-scope@npm:3.7.0"
@@ -1094,9 +1103,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@via-profit-services/core@file://home/dhs/Projects/@via-profit-services/core/package-1.0.0-rc.1.tgz::locator=%40via-profit-services%2Fsubscriptions%40workspace%3A.":
-  version: 1.0-rc.1
-  resolution: "@via-profit-services/core@file://home/dhs/Projects/@via-profit-services/core/package-1.0.0-rc.1.tgz::locator=%40via-profit-services%2Fsubscriptions%40workspace%3A."
+"@via-profit-services/core@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@via-profit-services/core@npm:1.0.2"
   dependencies:
     bufferutil: ^4.0.2
     content-type: ^1.0.4
@@ -1115,7 +1124,7 @@ __metadata:
       optional: true
     utf-8-validate:
       optional: true
-  checksum: 061625c2014e55f7e07cbc7235bb240d44513388b3f0ca3ce35d33e45f78c887340db9f87a0ed92912d59764a5d032b21f988c7eba4ea26e368be90c6aa1eda9
+  checksum: 18dc82c9317d5b2403789c00d6217ffad9acda1990f995b2da1b2b480e87ec02d70ae3c31f0fd57f031eabb018f86d6e3f057b7245b4f6f5460c25c3e8f9493e
   languageName: node
   linkType: hard
 
@@ -1135,6 +1144,7 @@ __metadata:
     "@jagi/jest-transform-graphql": ^1.0.2
     "@types/bluebird": ^3.5.29
     "@types/cors": ^2.8.6
+    "@types/dotenv": ^8.2.0
     "@types/express": ^4.17.2
     "@types/ioredis": ^4.14.9
     "@types/jest": ^24.0.23
@@ -1153,7 +1163,7 @@ __metadata:
     "@types/ws": ^7.2.4
     "@typescript-eslint/eslint-plugin": ^4.6.1
     "@typescript-eslint/parser": ^4.6.1
-    "@via-profit-services/core": "file://home/dhs/Projects/@via-profit-services/core/package-1.0.0-rc.1.tgz"
+    "@via-profit-services/core": ^1.0.2
     "@via-profit-services/eslint-config": ^0.1.11
     "@zerollup/ts-transform-paths": ^1.7.11
     chalk: ^3.0.0
@@ -3490,7 +3500,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^8.2.0":
+"dotenv@npm:*, dotenv@npm:^8.2.0":
   version: 8.2.0
   resolution: "dotenv@npm:8.2.0"
   checksum: 16cb89cbd7b98b053899b8aba8c5044c8fb61a2db8a81fe70360b75035fce5fed53bd7a34d772be717d0880c0321122a4c09423f518025e1b52d96791521b1a7
