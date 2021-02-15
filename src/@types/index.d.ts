@@ -29,9 +29,12 @@ declare module '@via-profit-services/subscriptions' {
   import { LoggersCollection, Middleware, Context } from '@via-profit-services/core';
   import { RedisPubSub } from 'graphql-redis-subscriptions';
   import { SubscriptionServer } from 'subscriptions-transport-ws';
+  import { ResolverFn, FilterFn } from 'graphql-subscriptions';
   import { RedisOptions, Redis } from 'ioredis';
   import { GraphQLSchema } from 'graphql';
   import http from 'http';
+
+  
 
   export interface InitialProps {
     /**
@@ -76,4 +79,5 @@ declare module '@via-profit-services/subscriptions' {
   export const resolvers: any;
   export const typeDefs: string;
   export const factory: SubscriptionsMiddlewareFactory;
+  export const pubsubFilter: (asyncIteratorFn: ResolverFn, filterFn: FilterFn) => ResolverFn;
 }

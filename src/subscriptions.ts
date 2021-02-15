@@ -81,6 +81,7 @@ export const pubsubFactory: PubsubFactory = (config, logger) => {
     connection: config,
   });
 
+
   return {
     redis: redisHandle,
     pubsub,
