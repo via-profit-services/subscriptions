@@ -38,6 +38,17 @@ const LOG_DIR = './artifacts/log';
     logDir: LOG_DIR,
     middleware: [
       subscriptionMiddleware,
+      ({ context }) => {
+        
+        context.emitter.on('subscriptions-client-connected', (socket) => {
+          console.log('connect', socket.__connectionClientID);
+        });
+        context.emitter.on('subscriptions-client-disconnected', (socket) => {
+          console.log('disconnect', socket.__connectionClientID);
+        });
+
+        return { context }
+      }
     ],
   });
 

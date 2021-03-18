@@ -6,7 +6,7 @@
 /// <reference types="node" />
 declare module '@via-profit-services/core' {
   import { RedisPubSub } from 'graphql-redis-subscriptions';
-  import { Redis } from 'ioredis';
+  import { PubsubClients, IdentiveWebSocketClient } from '@via-profit-services/subscriptions';
 
   interface Context {
 
@@ -16,11 +16,15 @@ declare module '@via-profit-services/core' {
      */
     pubsub: RedisPubSub;
 
-    /**
-     * Already configures instance of ioRedis
-     * @see: https://github.com/luin/ioredis
-     */
-    redis: Redis;
+    pubsubClients: PubsubClients;
+  }
+
+  interface CoreEmitter {
+    on(event: 'subscriptions-client-connected', callback: (webSocket: IdentiveWebSocketClient, clients: PubsubClients) => void): this;
+    on(event: 'subscriptions-client-disconnected', callback: (webSocket: IdentiveWebSocketClient, clients: PubsubClients) => void): this;
+    
+    once(event: 'subscriptions-client-connected', callback: (webSocket: IdentiveWebSocketClient, clients: PubsubClients) => void): this;
+    once(event: 'subscriptions-client-disconnected', callback: (webSocket: IdentiveWebSocketClient, clients: PubsubClients) => void): this;
   }
   
 }
@@ -28,13 +32,18 @@ declare module '@via-profit-services/core' {
 declare module '@via-profit-services/subscriptions' {
   import { LoggersCollection, Middleware, Context } from '@via-profit-services/core';
   import { RedisPubSub } from 'graphql-redis-subscriptions';
-  import { SubscriptionServer } from 'subscriptions-transport-ws';
   import { ResolverFn, FilterFn } from 'graphql-subscriptions';
-  import { RedisOptions, Redis } from 'ioredis';
+  import { SubscriptionServer } from 'subscriptions-transport-ws';
+  import { RedisOptions } from 'ioredis';
   import { GraphQLSchema } from 'graphql';
   import http from 'http';
+  import WebSocket from 'ws';
 
-  
+  export interface IdentiveWebSocketClient extends WebSocket {
+    __connectionClientID: string;
+  } 
+
+  export type PubsubClients = Map<string, IdentiveWebSocketClient>;
 
   export interface InitialProps {
     /**
@@ -64,17 +73,16 @@ declare module '@via-profit-services/subscriptions' {
 
   export type SubscriptionsMiddlewareFactory = (config: InitialProps) => Middleware;
 
-  export type PubsubFactory = (config: RedisOptions, logger: LoggersCollection) => {
-    pubsub: RedisPubSub;
-    redis: Redis;
+  export type PubsubFactory = (props: {
+    context: Context,
+    schema: GraphQLSchema,
+    configuration:Configuration,
+    logger: LoggersCollection
+  }) => {
+    pubsub: RedisPubSub,
+    subscriptionServer: SubscriptionServer,
+    pubsubClients: PubsubClients,
   };
-  
-  export type SubscriptionsFactory = (props: {
-    schema: GraphQLSchema;
-    server: http.Server;
-    endpoint: string;
-    context: Context;
-  }) => SubscriptionServer;
 
   export const resolvers: any;
   export const typeDefs: string;

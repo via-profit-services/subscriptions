@@ -1,34 +1,40 @@
 import { ServerError } from '@via-profit-services/core';
-import { PubsubFactory, SubscriptionsFactory } from '@via-profit-services/subscriptions';
+import { PubsubFactory, IdentiveWebSocketClient } from '@via-profit-services/subscriptions';
 import { execute, subscribe } from 'graphql';
 import { RedisPubSub } from 'graphql-redis-subscriptions';
 import IORedis from 'ioredis';
 import { SubscriptionServer } from 'subscriptions-transport-ws';
 import WebSocket from 'ws';
+import { v4 as uuidv4 } from 'uuid';
 
+type Cache = ReturnType<PubsubFactory>;
 
-export const pubsubFactory: PubsubFactory = (config, logger) => {
+const cache: Cache = {
+  pubsub: null,
+  subscriptionServer: null,
+  pubsubClients: new Map<string, IdentiveWebSocketClient>(),
+}
 
-  let redisHandle: IORedis.Redis;
+const pubsubFactory: PubsubFactory = ({ configuration, logger, schema, context }) => {
+
+  if (cache.pubsub && cache.subscriptionServer) {
+    return cache;
+  }
+
   let redisPublisherHandle: IORedis.Redis;
   let redisSubscriberHandle: IORedis.Redis;
-
+  const { server, endpoint } = configuration;
   const redisConfig = {
     retryStrategy: (times: number) => Math.min(times * 50, 20000),
-    ...config,
+    ...configuration.redis,
   };
 
   try {
-    redisHandle = new IORedis(redisConfig);
     redisPublisherHandle = new IORedis(redisConfig);
     redisSubscriberHandle = new IORedis(redisConfig);
   } catch (err) {
     throw new ServerError('Failed to init Redis handle', { err });
   }
-
-  redisHandle.on('error', (err) => {
-    logger.server.error(`Redis Common error ${err.errno}`, { err });
-  });
 
   redisPublisherHandle.on('error', (err) => {
     logger.server.error(`Redis Publisher error ${err.errno}`, { err });
@@ -36,10 +42,6 @@ export const pubsubFactory: PubsubFactory = (config, logger) => {
 
   redisSubscriberHandle.on('error', (err) => {
     logger.server.error(`Redis Subscriber error ${err.errno}`, { err });
-  });
-
-  redisHandle.on('connect', () => {
-    logger.server.debug('Redis common connection is Done');
   });
 
   redisPublisherHandle.on('connect', () => {
@@ -50,20 +52,12 @@ export const pubsubFactory: PubsubFactory = (config, logger) => {
     logger.server.debug('Redis Subscriber connection is Done');
   });
 
-  redisHandle.on('reconnecting', () => {
-    logger.server.debug('Redis common reconnecting');
-  });
-
   redisPublisherHandle.on('reconnecting', () => {
     logger.server.debug('Redis Publisher reconnecting');
   });
 
   redisSubscriberHandle.on('reconnecting', () => {
     logger.server.debug('Redis Subscriber reconnecting');
-  });
-
-  redisHandle.on('close', () => {
-    logger.server.debug('Redis common close');
   });
 
   redisPublisherHandle.on('close', () => {
@@ -75,35 +69,35 @@ export const pubsubFactory: PubsubFactory = (config, logger) => {
   });
 
 
-  const pubsub = new RedisPubSub({
+  cache.pubsub = cache.pubsub ?? new RedisPubSub({
     publisher: redisPublisherHandle,
     subscriber: redisSubscriberHandle,
-    connection: config,
+    connection: redisConfig,
   });
 
-
-  return {
-    redis: redisHandle,
-    pubsub,
-  };
-}
-
-export const subscriptionsFactory: SubscriptionsFactory = (props) => {
-  const { context, schema, endpoint, server } = props;
-  const { logger } = context;
-
-  const subscriptionServer = new SubscriptionServer({
+  
+  cache.subscriptionServer = cache.subscriptionServer ?? new SubscriptionServer({
     execute,
     schema,
     subscribe,
-    onConnect: async () => {
-      logger.server.debug('New subscription client connected');
+    onConnect: async (_connectionParams: any, webSocket: IdentiveWebSocketClient) => {
+      const connectionClientID = uuidv4();
+      webSocket.__connectionClientID = connectionClientID;
+      cache.pubsubClients.set(connectionClientID, webSocket);
+
+      logger.server.debug(`New subscription client connected with ID ${connectionClientID}. Active connections: ${cache.pubsubClients.size}`);
+      context.emitter.emit('subscriptions-client-connected', webSocket, cache.pubsubClients);
 
       return context;
     },
-    onDisconnect: (webSocket: WebSocket) => {
-      logger.server.debug('Subscription client disconnect');
-      webSocket.close()
+    onDisconnect: (webSocket: IdentiveWebSocketClient) => {
+      const connectionClientID = webSocket.__connectionClientID;
+      cache.pubsubClients.delete(connectionClientID);
+
+      logger.server.debug(`Subscription client disconnected with ID ${connectionClientID}. Active connections: ${cache.pubsubClients.size}`);
+      context.emitter.emit('subscriptions-client-disconnected', webSocket, cache.pubsubClients);
+
+      webSocket.close();
     },
   },
   {
@@ -111,5 +105,7 @@ export const subscriptionsFactory: SubscriptionsFactory = (props) => {
     path: endpoint,
   });
 
-  return subscriptionServer;
+  return cache;
 }
+
+export default pubsubFactory;
