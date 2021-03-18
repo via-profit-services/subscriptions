@@ -34,8 +34,8 @@ const factory: SubscriptionsMiddlewareFactory = (config) => {
       logger
     });
 
-    context.pubsubClients = context.pubsubClients ?? pubsubClients;
-    context.pubsub = context.pubsub ?? pubsub;
+    context.pubsubClients = pubsubClients;
+    context.pubsub = pubsub;
     
     return {
       context,
