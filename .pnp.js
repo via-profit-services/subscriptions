@@ -61,7 +61,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/ws", "npm:7.4.0"],
             ["@typescript-eslint/eslint-plugin", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:4.8.2"],
             ["@typescript-eslint/parser", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:4.8.2"],
-            ["@via-profit-services/core", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.0.2"],
+            ["@via-profit-services/core", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.0.5"],
             ["@via-profit-services/eslint-config", "npm:0.1.11"],
             ["@zerollup/ts-transform-paths", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.7.18"],
             ["chalk", "npm:3.0.0"],
@@ -110,6 +110,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ts-node", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:8.10.2"],
             ["tsconfig-paths-webpack-plugin", "npm:3.3.0"],
             ["typescript", "patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=5bf698"],
+            ["uuid", "npm:8.3.2"],
             ["webpack", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:5.9.0"],
             ["webpack-bundle-analyzer", "npm:4.2.0"],
             ["webpack-cli", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:4.2.0"],
@@ -1397,10 +1398,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@via-profit-services/core", [
-        ["virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.0.2", {
-          "packageLocation": "./.yarn/$$virtual/@via-profit-services-core-virtual-a9c0d119ef/0/cache/@via-profit-services-core-npm-1.0.2-8d54b96671-18dc82c931.zip/node_modules/@via-profit-services/core/",
+        ["virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.0.5", {
+          "packageLocation": "./.yarn/$$virtual/@via-profit-services-core-virtual-c94aea786f/0/cache/@via-profit-services-core-npm-1.0.5-60a1610ede-70166fa0c9.zip/node_modules/@via-profit-services/core/",
           "packageDependencies": [
-            ["@via-profit-services/core", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.0.2"],
+            ["@via-profit-services/core", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.0.5"],
             ["@types/dataloader", null],
             ["@types/express", "npm:4.17.9"],
             ["@types/graphql", null],
@@ -1477,7 +1478,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/ws", "npm:7.4.0"],
             ["@typescript-eslint/eslint-plugin", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:4.8.2"],
             ["@typescript-eslint/parser", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:4.8.2"],
-            ["@via-profit-services/core", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.0.2"],
+            ["@via-profit-services/core", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.0.5"],
             ["@via-profit-services/eslint-config", "npm:0.1.11"],
             ["@zerollup/ts-transform-paths", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.7.18"],
             ["chalk", "npm:3.0.0"],
@@ -1526,6 +1527,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ts-node", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:8.10.2"],
             ["tsconfig-paths-webpack-plugin", "npm:3.3.0"],
             ["typescript", "patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=5bf698"],
+            ["uuid", "npm:8.3.2"],
             ["webpack", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:5.9.0"],
             ["webpack-bundle-analyzer", "npm:4.2.0"],
             ["webpack-cli", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:4.2.0"],
@@ -12123,6 +12125,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/uuid-npm-3.4.0-4fd8ef88ad-1ce3f37e21.zip/node_modules/uuid/",
           "packageDependencies": [
             ["uuid", "npm:3.4.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:8.3.2", {
+          "packageLocation": "./.yarn/cache/uuid-npm-8.3.2-eca0baba53-aed2bcef34.zip/node_modules/uuid/",
+          "packageDependencies": [
+            ["uuid", "npm:8.3.2"]
           ],
           "linkType": "HARD",
         }]

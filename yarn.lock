@@ -1103,9 +1103,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@via-profit-services/core@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "@via-profit-services/core@npm:1.0.2"
+"@via-profit-services/core@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "@via-profit-services/core@npm:1.0.5"
   dependencies:
     bufferutil: ^4.0.2
     content-type: ^1.0.4
@@ -1124,7 +1124,7 @@ __metadata:
       optional: true
     utf-8-validate:
       optional: true
-  checksum: 18dc82c9317d5b2403789c00d6217ffad9acda1990f995b2da1b2b480e87ec02d70ae3c31f0fd57f031eabb018f86d6e3f057b7245b4f6f5460c25c3e8f9493e
+  checksum: 70166fa0c9d99336224af96b3d451a2da715988a02208858bf176ab7cfcba9762e9b585bf010c9e0894066662a45333c8f9445c6ffc5e8099837a0a2e2b0c403
   languageName: node
   linkType: hard
 
@@ -1163,7 +1163,7 @@ __metadata:
     "@types/ws": ^7.2.4
     "@typescript-eslint/eslint-plugin": ^4.6.1
     "@typescript-eslint/parser": ^4.6.1
-    "@via-profit-services/core": ^1.0.2
+    "@via-profit-services/core": ^1.0.5
     "@via-profit-services/eslint-config": ^0.1.11
     "@zerollup/ts-transform-paths": ^1.7.11
     chalk: ^3.0.0
@@ -1212,6 +1212,7 @@ __metadata:
     ts-node: ^8.6.2
     tsconfig-paths-webpack-plugin: ^3.3.0
     typescript: ^3.7.2
+    uuid: ^8.3.2
     webpack: ^5.4.0
     webpack-bundle-analyzer: ^4.2.0
     webpack-cli: ^4.2.0
@@ -1222,8 +1223,9 @@ __metadata:
     winston-daily-rotate-file: ^4.5.0
     ws: ^7.3.1
   peerDependencies:
-    "@via-profit-services/core": ^1.0.0
+    "@via-profit-services/core": ^1.0.5
     graphql: "*"
+    ioredis: ^4.16.3
   languageName: unknown
   linkType: soft
 
@@ -10644,6 +10646,15 @@ typescript@^3.7.2:
   bin:
     uuid: ./bin/uuid
   checksum: 1ce3f37e214d6d0dc94a6a9663a0365013ace66bc3fd5b203e6f5d2eeb978aaee1192367222386345d30b4c6a447928c501121aa84c637724bf105ef57284949
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^8.3.2":
+  version: 8.3.2
+  resolution: "uuid@npm:8.3.2"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: aed2bcef341f95635f308fea8831fb9038b18c485fe7e71feb89d2e05602dfecad0cb6f2246fae096d4da425cca6e8a71056f28abd97ad98cf770a2018853248
   languageName: node
   linkType: hard
 
