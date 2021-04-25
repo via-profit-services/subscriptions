@@ -1,16 +1,15 @@
 import { Middleware } from '@via-profit-services/core';
 import { SubscriptionsMiddlewareFactory, Configuration } from '@via-profit-services/subscriptions';
 import { withFilter as pubsubFilter } from 'graphql-subscriptions';
-import { SubscriptionServer } from 'subscriptions-transport-ws';
 
 
 import {
   DEFAULT_ENDPOINT, DEFAULT_REDIS_HOST,
   DEFAULT_REDIS_PASSWORD, DEFAULT_REDIS_PORT,
 } from './constants';
+import pubsubFactory from './pubsub-factory';
 import resolvers from './resolvers';
 import typeDefs from './schema.graphql';
-import pubsubFactory from './pubsub-factory';
 
 const factory: SubscriptionsMiddlewareFactory = (config) => {
 
@@ -31,12 +30,12 @@ const factory: SubscriptionsMiddlewareFactory = (config) => {
       configuration,
       context,
       schema,
-      logger
+      logger,
     });
 
     context.pubsubClients = pubsubClients;
     context.pubsub = pubsub;
-    
+
     return {
       context,
     };

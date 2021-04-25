@@ -39,7 +39,7 @@ const LOG_DIR = './artifacts/log';
     middleware: [
       subscriptionMiddleware,
       ({ context }) => {
-        
+
         context.emitter.on('subscriptions-client-connected', (socket) => {
           console.log('connect', socket.__connectionClientID);
         });
@@ -48,7 +48,7 @@ const LOG_DIR = './artifacts/log';
         });
 
         return { context }
-      }
+      },
     ],
   });
 

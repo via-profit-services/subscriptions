@@ -4,7 +4,6 @@ import { execute, subscribe } from 'graphql';
 import { RedisPubSub } from 'graphql-redis-subscriptions';
 import IORedis from 'ioredis';
 import { SubscriptionServer } from 'subscriptions-transport-ws';
-import WebSocket from 'ws';
 import { v4 as uuidv4 } from 'uuid';
 
 type Cache = ReturnType<PubsubFactory>;
@@ -17,6 +16,7 @@ const cache: Cache = {
 
 const pubsubFactory: PubsubFactory = ({ configuration, logger, schema, context }) => {
 
+  const getContext = () => context;
   if (cache.pubsub && cache.subscriptionServer) {
     return cache;
   }
@@ -75,7 +75,7 @@ const pubsubFactory: PubsubFactory = ({ configuration, logger, schema, context }
     connection: redisConfig,
   });
 
-  
+
   cache.subscriptionServer = cache.subscriptionServer ?? new SubscriptionServer({
     execute,
     schema,
@@ -85,17 +85,19 @@ const pubsubFactory: PubsubFactory = ({ configuration, logger, schema, context }
       webSocket.__connectionClientID = connectionClientID;
       cache.pubsubClients.set(connectionClientID, webSocket);
 
+      const ctx = getContext();
       logger.server.debug(`New subscription client connected with ID ${connectionClientID}. Active connections: ${cache.pubsubClients.size}`);
-      context.emitter.emit('subscriptions-client-connected', webSocket, cache.pubsubClients);
+      ctx.emitter.emit('subscriptions-client-connected', webSocket, cache.pubsubClients);
 
-      return context;
+      return ctx;
     },
     onDisconnect: (webSocket: IdentiveWebSocketClient) => {
       const connectionClientID = webSocket.__connectionClientID;
       cache.pubsubClients.delete(connectionClientID);
+      const ctx = getContext();
 
       logger.server.debug(`Subscription client disconnected with ID ${connectionClientID}. Active connections: ${cache.pubsubClients.size}`);
-      context.emitter.emit('subscriptions-client-disconnected', webSocket, cache.pubsubClients);
+      ctx.emitter.emit('subscriptions-client-disconnected', webSocket, cache.pubsubClients);
 
       webSocket.close();
     },

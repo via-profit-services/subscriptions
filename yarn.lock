@@ -1226,6 +1226,7 @@ __metadata:
     "@via-profit-services/core": ^1.0.5
     graphql: "*"
     ioredis: ^4.16.3
+    uuid: ^8.3.2
   languageName: unknown
   linkType: soft
 
