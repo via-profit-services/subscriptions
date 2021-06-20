@@ -1166,6 +1166,7 @@ __metadata:
     "@via-profit-services/core": ^1.0.5
     "@via-profit-services/eslint-config": ^0.1.11
     "@zerollup/ts-transform-paths": ^1.7.11
+    bufferutil: ^4.0.3
     chalk: ^3.0.0
     cors: ^2.8.5
     cross-env: ^6.0.3
@@ -1186,7 +1187,6 @@ __metadata:
     express: ^4.17.1
     graphql: ^15.4.0
     graphql-redis-subscriptions: ^2.3.1
-    graphql-subscriptions: ^1.1.0
     graphql-tag: ^2.11.0
     graphql-ws: ^5.1.2
     html-loader: ^1.3.2
@@ -1212,6 +1212,7 @@ __metadata:
     ts-node: ^8.6.2
     tsconfig-paths-webpack-plugin: ^3.3.0
     typescript: ^3.7.2
+    utf-8-validate: ^5.0.5
     uuid: ^8.3.2
     webpack: ^5.4.0
     webpack-bundle-analyzer: ^4.2.0
@@ -1221,12 +1222,14 @@ __metadata:
     webpack-node-externals: ^2.5.2
     winston: ^3.3.3
     winston-daily-rotate-file: ^4.5.0
-    ws: ^7.3.1
   peerDependencies:
     "@via-profit-services/core": ^1.0.5
-    graphql: "*"
+    bufferutil: ^4.0.1
+    graphql: ^15.5.0
+    graphql-ws: ^5.1.2
     ioredis: ^4.16.3
-    uuid: ^8.3.2
+    utf-8-validate: ^5.0.2
+    ws: ^7.3.1
   languageName: unknown
   linkType: soft
 
@@ -2364,6 +2367,16 @@ __metadata:
     node-gyp: latest
     node-gyp-build: ^4.2.0
   checksum: cb71bbdc609b6de49aaf2ff45fac5c64c55ff965f6bfe6f2bc357cc05afce69206a9ca1567011951b3f18b54dca24ef21be407d8ffce5a38a5f87bc2416140dd
+  languageName: node
+  linkType: hard
+
+"bufferutil@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "bufferutil@npm:4.0.3"
+  dependencies:
+    node-gyp: latest
+    node-gyp-build: ^4.2.0
+  checksum: 38ffbf450e071e2fc2a1ba2e353d5602749e74fcc0a302322c331a68d089c5bfcfb7b71dbc7fa07cbf08c15eb94128e5478ba8392a7a3691fd3277ef2c61665c
   languageName: node
   linkType: hard
 
@@ -4909,17 +4922,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"graphql-subscriptions@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "graphql-subscriptions@npm:1.1.0"
-  dependencies:
-    iterall: ^1.2.1
-  peerDependencies:
-    graphql: ^0.10.5 || ^0.11.3 || ^0.12.0 || ^0.13.0 || ^14.0.0
-  checksum: 3e10eebf446ebc3f4a2ec9c5798495234cbb446ad4b37e292c0419249366795168c3dc46fa981dd46f11da7c470cab4dc4e3b7ee98831ccd57e71d3d0d9567b8
-  languageName: node
-  linkType: hard
-
 "graphql-tag@npm:^2.11.0":
   version: 2.11.0
   resolution: "graphql-tag@npm:2.11.0"
@@ -5984,7 +5986,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"iterall@npm:^1.2.1, iterall@npm:^1.3.0":
+"iterall@npm:^1.3.0":
   version: 1.3.0
   resolution: "iterall@npm:1.3.0"
   checksum: 25ae2d07cf97fc35d43fa7af814839689416b83d3ade0fec97a62c58b7b9fad5ff89dd0ede99f2d67cae2697ffa6987f0ab10876f40ae6466e802609a05b1006
@@ -10567,6 +10569,16 @@ typescript@^3.7.2:
     node-gyp: latest
     node-gyp-build: ^4.2.0
   checksum: 0204294d8584ffba171c6b0f97613a4a9c882152067672b45f533f2c640786042ee2b4aeb5f390d6a741eb93b0dc925404652a78c29f9348e6cd422cbdaa44ca
+  languageName: node
+  linkType: hard
+
+"utf-8-validate@npm:^5.0.5":
+  version: 5.0.5
+  resolution: "utf-8-validate@npm:5.0.5"
+  dependencies:
+    node-gyp: latest
+    node-gyp-build: ^4.2.0
+  checksum: 020dacd9ac655ea114810f6025347bfbf48656ec4b363da6029779274d7f2b0f829717acb7f35dd4bf59ec12c62ace18fa213997ecbd5f43388684331fc862b0
   languageName: node
   linkType: hard
 

@@ -64,6 +64,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@via-profit-services/core", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.0.5"],
             ["@via-profit-services/eslint-config", "npm:0.1.11"],
             ["@zerollup/ts-transform-paths", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.7.18"],
+            ["bufferutil", "npm:4.0.3"],
             ["chalk", "npm:3.0.0"],
             ["cors", "npm:2.8.5"],
             ["cross-env", "npm:6.0.3"],
@@ -84,7 +85,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["express", "npm:4.17.1"],
             ["graphql", "npm:15.4.0"],
             ["graphql-redis-subscriptions", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:2.3.1"],
-            ["graphql-subscriptions", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.1.0"],
             ["graphql-tag", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:2.11.0"],
             ["graphql-ws", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:5.1.2"],
             ["html-loader", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.3.2"],
@@ -110,6 +110,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ts-node", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:8.10.2"],
             ["tsconfig-paths-webpack-plugin", "npm:3.3.0"],
             ["typescript", "patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=5bf698"],
+            ["utf-8-validate", "npm:5.0.5"],
             ["uuid", "npm:8.3.2"],
             ["webpack", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:5.9.0"],
             ["webpack-bundle-analyzer", "npm:4.2.0"],
@@ -118,8 +119,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["webpack-merge", "npm:5.4.0"],
             ["webpack-node-externals", "npm:2.5.2"],
             ["winston", "npm:3.3.3"],
-            ["winston-daily-rotate-file", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:4.5.0"],
-            ["ws", "virtual:e1f8f85c968e010ea429053be2ee8c00ccb355b700e19f942cf9e68ce99b80ff4774044b20dae8844fbe666d60a5d55b73dee745833aca8eb1adcab56e5cf912#npm:7.4.0"]
+            ["winston-daily-rotate-file", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:4.5.0"]
           ],
           "linkType": "SOFT",
         }]
@@ -1481,6 +1481,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@via-profit-services/core", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.0.5"],
             ["@via-profit-services/eslint-config", "npm:0.1.11"],
             ["@zerollup/ts-transform-paths", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.7.18"],
+            ["bufferutil", "npm:4.0.3"],
             ["chalk", "npm:3.0.0"],
             ["cors", "npm:2.8.5"],
             ["cross-env", "npm:6.0.3"],
@@ -1501,7 +1502,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["express", "npm:4.17.1"],
             ["graphql", "npm:15.4.0"],
             ["graphql-redis-subscriptions", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:2.3.1"],
-            ["graphql-subscriptions", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.1.0"],
             ["graphql-tag", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:2.11.0"],
             ["graphql-ws", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:5.1.2"],
             ["html-loader", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.3.2"],
@@ -1527,6 +1527,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ts-node", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:8.10.2"],
             ["tsconfig-paths-webpack-plugin", "npm:3.3.0"],
             ["typescript", "patch:typescript@npm%3A3.9.7#builtin<compat/typescript>::version=3.9.7&hash=5bf698"],
+            ["utf-8-validate", "npm:5.0.5"],
             ["uuid", "npm:8.3.2"],
             ["webpack", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:5.9.0"],
             ["webpack-bundle-analyzer", "npm:4.2.0"],
@@ -1535,8 +1536,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["webpack-merge", "npm:5.4.0"],
             ["webpack-node-externals", "npm:2.5.2"],
             ["winston", "npm:3.3.3"],
-            ["winston-daily-rotate-file", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:4.5.0"],
-            ["ws", "virtual:e1f8f85c968e010ea429053be2ee8c00ccb355b700e19f942cf9e68ce99b80ff4774044b20dae8844fbe666d60a5d55b73dee745833aca8eb1adcab56e5cf912#npm:7.4.0"]
+            ["winston-daily-rotate-file", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:4.5.0"]
           ],
           "linkType": "SOFT",
         }]
@@ -2847,6 +2847,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/unplugged/bufferutil-npm-4.0.2-6f283689b1/node_modules/bufferutil/",
           "packageDependencies": [
             ["bufferutil", "npm:4.0.2"],
+            ["node-gyp", "npm:7.1.2"],
+            ["node-gyp-build", "npm:4.2.3"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:4.0.3", {
+          "packageLocation": "./.yarn/unplugged/bufferutil-npm-4.0.3-ba64aa1a24/node_modules/bufferutil/",
+          "packageDependencies": [
+            ["bufferutil", "npm:4.0.3"],
             ["node-gyp", "npm:7.1.2"],
             ["node-gyp-build", "npm:4.2.3"]
           ],
@@ -5745,29 +5754,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["graphql-redis-subscriptions", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:2.3.1"],
             ["@types/graphql-subscriptions", null],
-            ["graphql-subscriptions", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.1.0"],
+            ["graphql-subscriptions", null],
             ["ioredis", "npm:4.19.2"],
             ["iterall", "npm:1.3.0"]
           ],
           "packagePeers": [
             "@types/graphql-subscriptions",
             "graphql-subscriptions"
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["graphql-subscriptions", [
-        ["virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.1.0", {
-          "packageLocation": "./.yarn/$$virtual/graphql-subscriptions-virtual-364d9bc9bd/0/cache/graphql-subscriptions-npm-1.1.0-89d5e40c1b-3e10eebf44.zip/node_modules/graphql-subscriptions/",
-          "packageDependencies": [
-            ["graphql-subscriptions", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.1.0"],
-            ["@types/graphql", null],
-            ["graphql", "npm:15.4.0"],
-            ["iterall", "npm:1.3.0"]
-          ],
-          "packagePeers": [
-            "@types/graphql",
-            "graphql"
           ],
           "linkType": "HARD",
         }]
@@ -12035,6 +12028,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/unplugged/utf-8-validate-npm-5.0.3-70d3f814e3/node_modules/utf-8-validate/",
           "packageDependencies": [
             ["utf-8-validate", "npm:5.0.3"],
+            ["node-gyp", "npm:7.1.2"],
+            ["node-gyp-build", "npm:4.2.3"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:5.0.5", {
+          "packageLocation": "./.yarn/unplugged/utf-8-validate-npm-5.0.5-bbc4862e02/node_modules/utf-8-validate/",
+          "packageDependencies": [
+            ["utf-8-validate", "npm:5.0.5"],
             ["node-gyp", "npm:7.1.2"],
             ["node-gyp-build", "npm:4.2.3"]
           ],
