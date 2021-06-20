@@ -1188,6 +1188,7 @@ __metadata:
     graphql-redis-subscriptions: ^2.3.1
     graphql-subscriptions: ^1.1.0
     graphql-tag: ^2.11.0
+    graphql-ws: ^5.1.2
     html-loader: ^1.3.2
     husky: ^4.2.3
     ioredis: ^4.16.3
@@ -1203,7 +1204,6 @@ __metadata:
     rimraf: ^3.0.0
     session-file-store: ^1.5.0
     shebang-loader: ^0.0.1
-    subscriptions-transport-ws: ^0.9.18
     supertest: ^4.0.2
     supports-color: ^8.0.0
     terser-webpack-plugin: ^5.0.3
@@ -2012,13 +2012,6 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0
   checksum: 6b85c399b8438685c7d9f4bd67c659bba24d929e2ffe18ffdaa88d8ad3f2ccad06cfdc28dbdd5e9d95ec49ec506e31452bf78f04663f55282e36abf445263845
-  languageName: node
-  linkType: hard
-
-"backo2@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "backo2@npm:1.0.2"
-  checksum: 72f19a0fd2b573f5504adf1f2e74e7658eec000e7732ebd5f622b6b1d520187277a5e8310787906455d02fcf915f35c5c48e54c997bed1a60b95355db8f2ccab
   languageName: node
   linkType: hard
 
@@ -4124,13 +4117,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eventemitter3@npm:^3.1.0":
-  version: 3.1.2
-  resolution: "eventemitter3@npm:3.1.2"
-  checksum: fa1a206c4e4e8e427542f7fdfa10bd073a4ddf2510fb22e2f9a33b9aa7a0d5669bffba9b889e22d8c1c976af51a92dab274845e58d626ddb2d3563ed4d5d50dc
-  languageName: node
-  linkType: hard
-
 "eventemitter3@npm:^4.0.0":
   version: 4.0.7
   resolution: "eventemitter3@npm:4.0.7"
@@ -4940,6 +4926,15 @@ fsevents@~2.1.2:
   peerDependencies:
     graphql: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
   checksum: 400355590180cce2f39df5c599cad20ee982bb7e4a63ad70857aa0fe2e82e3ef6233a4db2b80a03e6dfa84bf3ecb13dc2947936eaf31753c94876e22be45ea78
+  languageName: node
+  linkType: hard
+
+"graphql-ws@npm:^5.1.2":
+  version: 5.1.2
+  resolution: "graphql-ws@npm:5.1.2"
+  peerDependencies:
+    graphql: ">=0.11 <=15"
+  checksum: 0120a09cfd30006021a65601a9627bb82e0cc645f19b41855354a8788b7a701b78326257f222b078bb95a97c5ab0cc5cac480f0e5212fb408c70c7f8f6f00d2e
   languageName: node
   linkType: hard
 
@@ -9892,21 +9887,6 @@ resolve@1.1.7:
   languageName: node
   linkType: hard
 
-"subscriptions-transport-ws@npm:^0.9.18":
-  version: 0.9.18
-  resolution: "subscriptions-transport-ws@npm:0.9.18"
-  dependencies:
-    backo2: ^1.0.2
-    eventemitter3: ^3.1.0
-    iterall: ^1.2.1
-    symbol-observable: ^1.0.4
-    ws: ^5.2.0
-  peerDependencies:
-    graphql: ">=0.10.0"
-  checksum: 54f23dadb344395cff5f4719176fc78f0eced460ee718506981235f3b2ca20b31682ea859afcf988c430d42e1015dbb555f8ad1a219154b2d9f14c33565453ea
-  languageName: node
-  linkType: hard
-
 "superagent@npm:^3.8.3":
   version: 3.8.3
   resolution: "superagent@npm:3.8.3"
@@ -9968,13 +9948,6 @@ resolve@1.1.7:
   dependencies:
     has-flag: ^4.0.0
   checksum: 9f60da6f115c2952712fe130060d94c1ab160d914fde264afbdcc6bd1cea9f47aebc02ffed206aa3e922427aa919c91212a7e03d0b4d570e76791918d541abcb
-  languageName: node
-  linkType: hard
-
-"symbol-observable@npm:^1.0.4":
-  version: 1.2.0
-  resolution: "symbol-observable@npm:1.2.0"
-  checksum: 268834a1d4cba19d40f367e5c2755f612969c8418e43a3be17408e392802a667f8bb542893440d58a080a8ea8da05ea98e27e472b9f4ff6fbda78a21a1a41c53
   languageName: node
   linkType: hard
 

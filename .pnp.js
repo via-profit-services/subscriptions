@@ -86,6 +86,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql-redis-subscriptions", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:2.3.1"],
             ["graphql-subscriptions", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.1.0"],
             ["graphql-tag", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:2.11.0"],
+            ["graphql-ws", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:5.1.2"],
             ["html-loader", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.3.2"],
             ["husky", "npm:4.3.0"],
             ["ioredis", "npm:4.19.2"],
@@ -101,7 +102,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rimraf", "npm:3.0.2"],
             ["session-file-store", "npm:1.5.0"],
             ["shebang-loader", "npm:0.0.1"],
-            ["subscriptions-transport-ws", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:0.9.18"],
             ["supertest", "npm:4.0.2"],
             ["supports-color", "npm:8.0.0"],
             ["terser-webpack-plugin", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:5.0.3"],
@@ -1503,6 +1503,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["graphql-redis-subscriptions", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:2.3.1"],
             ["graphql-subscriptions", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.1.0"],
             ["graphql-tag", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:2.11.0"],
+            ["graphql-ws", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:5.1.2"],
             ["html-loader", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.3.2"],
             ["husky", "npm:4.3.0"],
             ["ioredis", "npm:4.19.2"],
@@ -1518,7 +1519,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rimraf", "npm:3.0.2"],
             ["session-file-store", "npm:1.5.0"],
             ["shebang-loader", "npm:0.0.1"],
-            ["subscriptions-transport-ws", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:0.9.18"],
             ["supertest", "npm:4.0.2"],
             ["supports-color", "npm:8.0.0"],
             ["terser-webpack-plugin", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:5.0.3"],
@@ -2456,15 +2456,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packagePeers": [
             "@babel/core",
             "@types/babel__core"
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["backo2", [
-        ["npm:1.0.2", {
-          "packageLocation": "./.yarn/cache/backo2-npm-1.0.2-e933aab18a-72f19a0fd2.zip/node_modules/backo2/",
-          "packageDependencies": [
-            ["backo2", "npm:1.0.2"]
           ],
           "linkType": "HARD",
         }]
@@ -4893,13 +4884,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["eventemitter3", [
-        ["npm:3.1.2", {
-          "packageLocation": "./.yarn/cache/eventemitter3-npm-3.1.2-a68b03e1ea-fa1a206c4e.zip/node_modules/eventemitter3/",
-          "packageDependencies": [
-            ["eventemitter3", "npm:3.1.2"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:4.0.7", {
           "packageLocation": "./.yarn/cache/eventemitter3-npm-4.0.7-7afcdd74ae-1fc12c7bc3.zip/node_modules/eventemitter3/",
           "packageDependencies": [
@@ -5793,6 +5777,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/$$virtual/graphql-tag-virtual-0579492ad7/0/cache/graphql-tag-npm-2.11.0-d505ecf590-4003555901.zip/node_modules/graphql-tag/",
           "packageDependencies": [
             ["graphql-tag", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:2.11.0"],
+            ["@types/graphql", null],
+            ["graphql", "npm:15.4.0"]
+          ],
+          "packagePeers": [
+            "@types/graphql",
+            "graphql"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["graphql-ws", [
+        ["virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:5.1.2", {
+          "packageLocation": "./.yarn/$$virtual/graphql-ws-virtual-ba41ee30b4/0/cache/graphql-ws-npm-5.1.2-6ca351f33a-0120a09cfd.zip/node_modules/graphql-ws/",
+          "packageDependencies": [
+            ["graphql-ws", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:5.1.2"],
             ["@types/graphql", null],
             ["graphql", "npm:15.4.0"]
           ],
@@ -11254,26 +11253,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["subscriptions-transport-ws", [
-        ["virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:0.9.18", {
-          "packageLocation": "./.yarn/$$virtual/subscriptions-transport-ws-virtual-7749f8b5e4/0/cache/subscriptions-transport-ws-npm-0.9.18-7d0f338bbd-54f23dadb3.zip/node_modules/subscriptions-transport-ws/",
-          "packageDependencies": [
-            ["subscriptions-transport-ws", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:0.9.18"],
-            ["@types/graphql", null],
-            ["backo2", "npm:1.0.2"],
-            ["eventemitter3", "npm:3.1.2"],
-            ["graphql", "npm:15.4.0"],
-            ["iterall", "npm:1.3.0"],
-            ["symbol-observable", "npm:1.2.0"],
-            ["ws", "npm:5.2.2"]
-          ],
-          "packagePeers": [
-            "@types/graphql",
-            "graphql"
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["superagent", [
         ["npm:3.8.3", {
           "packageLocation": "./.yarn/cache/superagent-npm-3.8.3-8bdf672d54-6a2151f7c4.zip/node_modules/superagent/",
@@ -11334,15 +11313,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["supports-color", "npm:8.0.0"],
             ["has-flag", "npm:4.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["symbol-observable", [
-        ["npm:1.2.0", {
-          "packageLocation": "./.yarn/cache/symbol-observable-npm-1.2.0-9e812a0a39-268834a1d4.zip/node_modules/symbol-observable/",
-          "packageDependencies": [
-            ["symbol-observable", "npm:1.2.0"]
           ],
           "linkType": "HARD",
         }]

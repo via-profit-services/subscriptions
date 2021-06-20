@@ -1,29 +1,39 @@
-import { ServerError } from '@via-profit-services/core';
-import { PubsubFactory, IdentiveWebSocketClient } from '@via-profit-services/subscriptions';
+import { ServerError, Context } from '@via-profit-services/core';
+import { PubsubFactory } from '@via-profit-services/subscriptions';
 import { execute, subscribe } from 'graphql';
 import { RedisPubSub } from 'graphql-redis-subscriptions';
+import { useServer } from 'graphql-ws/lib/use/ws';
 import IORedis from 'ioredis';
-import { SubscriptionServer } from 'subscriptions-transport-ws';
-import { v4 as uuidv4 } from 'uuid';
+import ws from 'ws';
 
 type Cache = ReturnType<PubsubFactory>;
 
 const cache: Cache = {
   pubsub: null,
   subscriptionServer: null,
-  pubsubClients: new Map<string, IdentiveWebSocketClient>(),
-}
+};
 
 const pubsubFactory: PubsubFactory = ({ configuration, logger, schema, context }) => {
 
-  const getContext = () => context;
   if (cache.pubsub && cache.subscriptionServer) {
     return cache;
   }
 
   let redisPublisherHandle: IORedis.Redis;
   let redisSubscriberHandle: IORedis.Redis;
-  const { server, endpoint } = configuration;
+  const {
+    server,
+    endpoint,
+    onConnect,
+    onDisconnect,
+    onClose,
+    onSubscribe,
+    onOperation,
+    onError,
+    onNext,
+    onComplete,
+  } = configuration;
+
   const redisConfig = {
     retryStrategy: (times: number) => Math.min(times * 50, 20000),
     ...configuration.redis,
@@ -69,43 +79,42 @@ const pubsubFactory: PubsubFactory = ({ configuration, logger, schema, context }
   });
 
 
-  cache.pubsub = cache.pubsub ?? new RedisPubSub({
+  cache.pubsub = new RedisPubSub({
     publisher: redisPublisherHandle,
     subscriber: redisSubscriberHandle,
     connection: redisConfig,
   });
 
 
-  cache.subscriptionServer = cache.subscriptionServer ?? new SubscriptionServer({
-    execute,
-    schema,
-    subscribe,
-    onConnect: async (_connectionParams: any, webSocket: IdentiveWebSocketClient) => {
-      const connectionClientID = uuidv4();
-      webSocket.__connectionClientID = connectionClientID;
-      cache.pubsubClients.set(connectionClientID, webSocket);
-
-      const ctx = getContext();
-      logger.server.debug(`New subscription client connected with ID ${connectionClientID}. Active connections: ${cache.pubsubClients.size}`);
-      ctx.emitter.emit('subscriptions-client-connected', webSocket, cache.pubsubClients);
-
-      return ctx;
-    },
-    onDisconnect: (webSocket: IdentiveWebSocketClient) => {
-      const connectionClientID = webSocket.__connectionClientID;
-      cache.pubsubClients.delete(connectionClientID);
-      const ctx = getContext();
-
-      logger.server.debug(`Subscription client disconnected with ID ${connectionClientID}. Active connections: ${cache.pubsubClients.size}`);
-      ctx.emitter.emit('subscriptions-client-disconnected', webSocket, cache.pubsubClients);
-
-      webSocket.close();
-    },
-  },
-  {
-    server,
+  cache.subscriptionServer = new ws.Server({
     path: endpoint,
+    server,
   });
+
+  useServer<{ context?: Context; }>(
+    {
+      execute,
+      subscribe,
+      schema,
+      onConnect: ctx => {
+        ctx.extra.context = context;
+        if (onConnect) {
+          onConnect(ctx);
+        }
+
+        return true;
+      },
+      context: ctx => ctx.extra.context,
+      onDisconnect,
+      onClose,
+      onSubscribe,
+      onOperation,
+      onError,
+      onNext,
+      onComplete,
+    },
+    cache.subscriptionServer,
+  );
 
   return cache;
 }

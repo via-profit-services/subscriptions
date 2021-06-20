@@ -11,9 +11,7 @@ dotenv.config();
 
 const LOG_DIR = './artifacts/log';
 
-
 (async () => {
-
   const app = express();
   const server = createServer(app);
   const schema = makeExecutableSchema({
@@ -36,33 +34,21 @@ const LOG_DIR = './artifacts/log';
     schema,
     debug: true,
     logDir: LOG_DIR,
-    middleware: [
-      subscriptionMiddleware,
-      ({ context }) => {
-
-        context.emitter.on('subscriptions-client-connected', (socket) => {
-          console.log('connect', socket.__connectionClientID);
-        });
-        context.emitter.on('subscriptions-client-disconnected', (socket) => {
-          console.log('disconnect', socket.__connectionClientID);
-        });
-
-        return { context }
-      },
-    ],
+    middleware: [subscriptionMiddleware],
   });
-
 
   app.use(cors());
   app.set('trust proxy', true);
   app.use(process.env.GRAPHQL_ENDPOINT, graphQLExpress);
 
-
   server.listen(Number(process.env.GRAPHQL_PORT), process.env.GRAPHQL_HOST, () => {
     // eslint-disable-next-line no-console
-    console.info(`GraphQL server started at http://${process.env.GRAPHQL_HOST}:${process.env.GRAPHQL_PORT}${process.env.GRAPHQL_ENDPOINT}`);
+    console.info(
+      `GraphQL server started at http://${process.env.GRAPHQL_HOST}:${process.env.GRAPHQL_PORT}${process.env.GRAPHQL_ENDPOINT}`,
+    );
     // eslint-disable-next-line no-console
-    console.info(`Subscription server started at ws://${process.env.GRAPHQL_HOST}:${process.env.GRAPHQL_PORT}${process.env.GRAPHQL_SUBSCRIPTION_ENDPOINT}`);
+    console.info(
+      `Subscription server started at ws://${process.env.GRAPHQL_HOST}:${process.env.GRAPHQL_PORT}${process.env.GRAPHQL_SUBSCRIPTION_ENDPOINT}`,
+    );
   });
-
 })();

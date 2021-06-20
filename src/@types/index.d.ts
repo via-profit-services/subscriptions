@@ -6,7 +6,6 @@
 /// <reference types="node" />
 declare module '@via-profit-services/core' {
   import { RedisPubSub } from 'graphql-redis-subscriptions';
-  import { PubsubClients, IdentiveWebSocketClient } from '@via-profit-services/subscriptions';
 
   interface Context {
 
@@ -15,36 +14,33 @@ declare module '@via-profit-services/core' {
      * @see: https://github.com/davidyaha/graphql-redis-subscriptions
      */
     pubsub: RedisPubSub;
-
-    pubsubClients: PubsubClients;
-  }
-
-  interface CoreEmitter {
-    on(event: 'subscriptions-client-connected', callback: (webSocket: IdentiveWebSocketClient, clients: PubsubClients) => void): this;
-    on(event: 'subscriptions-client-disconnected', callback: (webSocket: IdentiveWebSocketClient, clients: PubsubClients) => void): this;
-    
-    once(event: 'subscriptions-client-connected', callback: (webSocket: IdentiveWebSocketClient, clients: PubsubClients) => void): this;
-    once(event: 'subscriptions-client-disconnected', callback: (webSocket: IdentiveWebSocketClient, clients: PubsubClients) => void): this;
-  }
-  
+  }  
 }
+
 
 declare module '@via-profit-services/subscriptions' {
   import { LoggersCollection, Middleware, Context } from '@via-profit-services/core';
   import { RedisPubSub } from 'graphql-redis-subscriptions';
-  import { SubscriptionServer } from 'subscriptions-transport-ws';
   import { RedisOptions } from 'ioredis';
   import { GraphQLSchema } from 'graphql';
+  import { Extra } from 'graphql-ws/lib/use/ws';
+  import { ServerOptions } from 'graphql-ws';
   import http from 'http';
   import WebSocket from 'ws';
 
-  export interface IdentiveWebSocketClient extends WebSocket {
-    __connectionClientID: string;
-  } 
 
-  export type PubsubClients = Map<string, IdentiveWebSocketClient>;
-
-  export interface InitialProps {
+  export interface Configuration
+    extends Pick<
+      ServerOptions<Extra & { context?: Context }>,
+      | 'onConnect'
+      | 'onDisconnect'
+      | 'onClose'
+      | 'onSubscribe'
+      | 'onOperation'
+      | 'onError'
+      | 'onNext'
+      | 'onComplete'
+    > {
     /**
      * Your HTTP server instance
      */
@@ -68,9 +64,7 @@ declare module '@via-profit-services/subscriptions' {
     redis?: RedisOptions;
   }
 
-  export type Configuration = Required<InitialProps>;
-
-  export type SubscriptionsMiddlewareFactory = (config: InitialProps) => Middleware;
+  export type SubscriptionsMiddlewareFactory = (config: Configuration) => Middleware;
 
   export type PubsubFactory = (props: {
     context: Context,
@@ -79,8 +73,7 @@ declare module '@via-profit-services/subscriptions' {
     logger: LoggersCollection
   }) => {
     pubsub: RedisPubSub,
-    subscriptionServer: SubscriptionServer,
-    pubsubClients: PubsubClients,
+    subscriptionServer: WebSocket.Server,
   };
 
   export type ResolverFn = <Parent = any, Args = any>(parent: Parent, args: Args, context: Context, info: any) => AsyncIterator<any>;
@@ -89,5 +82,4 @@ declare module '@via-profit-services/subscriptions' {
   export const resolvers: any;
   export const typeDefs: string;
   export const factory: SubscriptionsMiddlewareFactory;
-  export const pubsubFilter = <Payload = any, Variables = any>(asyncIteratorFn: ResolverFn, filterFn: FilterFn<Payload, Variables>) => ResolverFn;
 }
