@@ -76,11 +76,14 @@ declare module '@via-profit-services/subscriptions' {
     subscriptionServer: WebSocket.Server,
   };
 
-  export type ResolverFn = <Parent = any, Args = any>(parent: Parent, args: Args, context: Context, info: any) => AsyncIterator<any>;
+  export type ResolverFn<Parent = any, Args = any> = (parent: Parent, args: Args, context: Context, info: any) => AsyncIterator<any>;
   export type FilterFn<Payload = any, Variables = any> = (payload: Payload, variables: Variables, context: Context, info?: any) => boolean | Promise<boolean>;
 
   export const resolvers: any;
   export const typeDefs: string;
   export const factory: SubscriptionsMiddlewareFactory;
-  export const pubsubFilter: (asyncIteratorFn: ResolverFn, filterFn: FilterFn) => ResolverFn;
+  export const pubsubFilter: <Payload = any, Variables = any, Parent = any, Args = any>(
+    asyncIteratorFn: ResolverFn<Parent, Args>,
+    filterFn: FilterFn<Payload, Variables>,
+  ) => ResolverFn<Parent, Args>;
 }
