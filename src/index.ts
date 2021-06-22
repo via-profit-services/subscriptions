@@ -1,5 +1,6 @@
 import { Middleware } from '@via-profit-services/core';
 import { SubscriptionsMiddlewareFactory, Configuration } from '@via-profit-services/subscriptions';
+import { withFilter as pubsubFilter } from 'graphql-subscriptions';
 
 import {
   DEFAULT_ENDPOINT, DEFAULT_REDIS_HOST,
@@ -45,4 +46,5 @@ export {
   resolvers,
   typeDefs,
   factory,
+  pubsubFilter,
 }

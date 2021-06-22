@@ -82,4 +82,5 @@ declare module '@via-profit-services/subscriptions' {
   export const resolvers: any;
   export const typeDefs: string;
   export const factory: SubscriptionsMiddlewareFactory;
+  export const pubsubFilter: (asyncIteratorFn: ResolverFn, filterFn: FilterFn) => ResolverFn;
 }

@@ -1187,6 +1187,7 @@ __metadata:
     express: ^4.17.1
     graphql: ^15.4.0
     graphql-redis-subscriptions: ^2.3.1
+    graphql-subscriptions: ^1.2.1
     graphql-tag: ^2.11.0
     graphql-ws: ^5.1.2
     html-loader: ^1.3.2
@@ -1226,6 +1227,7 @@ __metadata:
     "@via-profit-services/core": ^1.0.5
     bufferutil: ^4.0.1
     graphql: ^15.5.0
+    graphql-subscriptions: ^1.2.1
     graphql-ws: ^5.1.2
     ioredis: ^4.16.3
     utf-8-validate: ^5.0.2
@@ -4919,6 +4921,17 @@ fsevents@~2.1.2:
     ioredis:
       optional: true
   checksum: 11fff9d8eaa3ae35e348a6c0a02344db0ab0fcbf4a3d1a10d84fc898d0063cd6c02d660a2758540c1665e3dbe1f6a3a7561052488d7b98df3d8ab75d7ba8061e
+  languageName: node
+  linkType: hard
+
+"graphql-subscriptions@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "graphql-subscriptions@npm:1.2.1"
+  dependencies:
+    iterall: ^1.3.0
+  peerDependencies:
+    graphql: ^0.10.5 || ^0.11.3 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
+  checksum: 9de788213f885de8c2b9cf45f9620d6bcbd7606796f96a1ff7761f0a5c60485e9abb534b8e3080564bc0e923ca24ed6677a24bab04581e646027248b3ebd4cfd
   languageName: node
   linkType: hard
 

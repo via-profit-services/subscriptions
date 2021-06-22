@@ -85,6 +85,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["express", "npm:4.17.1"],
             ["graphql", "npm:15.4.0"],
             ["graphql-redis-subscriptions", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:2.3.1"],
+            ["graphql-subscriptions", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.2.1"],
             ["graphql-tag", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:2.11.0"],
             ["graphql-ws", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:5.1.2"],
             ["html-loader", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.3.2"],
@@ -1502,6 +1503,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["express", "npm:4.17.1"],
             ["graphql", "npm:15.4.0"],
             ["graphql-redis-subscriptions", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:2.3.1"],
+            ["graphql-subscriptions", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.2.1"],
             ["graphql-tag", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:2.11.0"],
             ["graphql-ws", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:5.1.2"],
             ["html-loader", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.3.2"],
@@ -5754,13 +5756,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["graphql-redis-subscriptions", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:2.3.1"],
             ["@types/graphql-subscriptions", null],
-            ["graphql-subscriptions", null],
+            ["graphql-subscriptions", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.2.1"],
             ["ioredis", "npm:4.19.2"],
             ["iterall", "npm:1.3.0"]
           ],
           "packagePeers": [
             "@types/graphql-subscriptions",
             "graphql-subscriptions"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["graphql-subscriptions", [
+        ["virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.2.1", {
+          "packageLocation": "./.yarn/$$virtual/graphql-subscriptions-virtual-1780c91d5a/0/cache/graphql-subscriptions-npm-1.2.1-6f6629f38d-9de788213f.zip/node_modules/graphql-subscriptions/",
+          "packageDependencies": [
+            ["graphql-subscriptions", "virtual:a6f9003511d7867cb47a66451eb6d13c911a3445f10681ecb96ab94e48b3d9e0bb360be7d87a64aa868dd1ce4f7865e23ec7a69577c74c7547fa1265463b6450#npm:1.2.1"],
+            ["@types/graphql", null],
+            ["graphql", "npm:15.4.0"],
+            ["iterall", "npm:1.3.0"]
+          ],
+          "packagePeers": [
+            "@types/graphql",
+            "graphql"
           ],
           "linkType": "HARD",
         }]
